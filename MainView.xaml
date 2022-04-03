@@ -8,10 +8,10 @@
              Height="200" Width="300"
              Title="Установка семейств на трубу">
     <StackPanel>
-        <Label Content="Выбрать тип семейства"
+        <Label Content="Выбрать тип метки"
                Margin="5"/>
-        <ComboBox ItemsSource="{Binding FamilyTypes}"
-                  SelectedValue="{Binding SelectedFamilyType}"
+        <ComboBox ItemsSource="{Binding Tags}"
+                  SelectedValue="{Binding SelectedTagType}"
                   DisplayMemberPath="Name"
                   Margin="5"/>
 

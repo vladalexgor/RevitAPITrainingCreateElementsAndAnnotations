@@ -16,19 +16,19 @@ namespace RevitAPITrainingCreateElementsAndAnnotations
     {
         private ExternalCommandData _commandData;
 
-        public Pipe Pipe { get; }
+        public List<FamilySymbol> Tags { get; } = new List<FamilySymbol>();
 
-        public List<FamilySymbol> FamilyTypes { get; } = new List<FamilySymbol>();
+        public Pipe Pipe { get; }
 
         public DelegateCommand SaveCommand { get; }
 
-        public FamilySymbol SelectedFamilyType { get; set; }
+        public FamilySymbol SelectedTagType { get; set; }
 
         public MainViewViewModel(ExternalCommandData commandData)
         {
             _commandData = commandData;
+            Tags = TagsUtils.GetPipeTagTypes(commandData);
             Pipe = SelectionUtils.GetObject<Pipe>(commandData, "Выберите трубу");
-            FamilyTypes = FamilySymbolUtils.GetFamilySymbols(commandData);
             SaveCommand = new DelegateCommand(OnSaveCommand);
         }
 
@@ -38,13 +38,17 @@ namespace RevitAPITrainingCreateElementsAndAnnotations
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Document doc = uidoc.Document;
 
-            var locationCurve = Pipe.Location as LocationCurve;
-            var pipeCurve = locationCurve.Curve;
+            var pipeLocCurve = Pipe.Location as LocationCurve;
+            var pipeCurve = pipeLocCurve.Curve;
+            var pipeMidPoint = (pipeCurve.GetEndPoint(0) + pipeCurve.GetEndPoint(1)) / 2;
+            using (var ts = new Transaction(doc, "Create tag"))
+            {
+                ts.Start();
 
-            var oLevel = (Level)doc.GetElement(Pipe.LevelId);
+                IndependentTag.Create(doc, SelectedTagType.Id, doc.ActiveView.Id, new Reference(Pipe), false, TagOrientation.Horizontal, pipeMidPoint);
 
-            FamilyInstanceUtils.CreateFamilyInstance(_commandData, SelectedFamilyType, pipeCurve.GetEndPoint(0), oLevel);
-            FamilyInstanceUtils.CreateFamilyInstance(_commandData, SelectedFamilyType, pipeCurve.GetEndPoint(1), oLevel);
+                ts.Commit();
+            }
 
             RaiseCloseRequest();
         }
