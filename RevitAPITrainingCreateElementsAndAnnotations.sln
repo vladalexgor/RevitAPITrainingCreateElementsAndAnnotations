@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevitAPITrainingCreateElementsAndAnnotations", "RevitAPITrainingCreateElementsAndAnnotations.csproj", "{0868950D-0974-46BE-A1D5-914F8330BEE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevitAPITrainingLibrary", "..\RevitAPITrainingLibrary\RevitAPITrainingLibrary\RevitAPITrainingLibrary.csproj", "{5605CC4D-0279-48EE-AB1D-20A76143B408}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0868950D-0974-46BE-A1D5-914F8330BEE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0868950D-0974-46BE-A1D5-914F8330BEE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0868950D-0974-46BE-A1D5-914F8330BEE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0868950D-0974-46BE-A1D5-914F8330BEE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5605CC4D-0279-48EE-AB1D-20A76143B408}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5605CC4D-0279-48EE-AB1D-20A76143B408}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5605CC4D-0279-48EE-AB1D-20A76143B408}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5605CC4D-0279-48EE-AB1D-20A76143B408}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A24CE115-78B0-4FF3-B3B4-75AC66DCA97D}
+	EndGlobalSection
+EndGlobal
