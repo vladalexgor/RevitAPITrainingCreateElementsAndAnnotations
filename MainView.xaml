@@ -5,25 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RevitAPITrainingCreateElementsAndAnnotations"
              mc:Ignorable="d" 
-             Height="300" Width="300"
-             Title="Создание стен">
+             Height="200" Width="300"
+             Title="Установка семейств на трубу">
     <StackPanel>
-        <Label Content="Выбрать тип стены из списка"
+        <Label Content="Выбрать тип семейства"
                Margin="5"/>
-        <ComboBox ItemsSource="{Binding WallTypes}"
-                  SelectedValue="{Binding SelectedWallType}"
+        <ComboBox ItemsSource="{Binding FamilyTypes}"
+                  SelectedValue="{Binding SelectedFamilyType}"
                   DisplayMemberPath="Name"
                   Margin="5"/>
-
-        <Label Content="Выбрать уровень из списка"/>
-        <ComboBox ItemsSource="{Binding Levels}"
-                  SelectedValue="{Binding SelectedLevel}"
-                  DisplayMemberPath="Name"
-                  Margin="5"/>
-
-        <Label Content="Высота стены"/>
-        <TextBox Text="{Binding WallHeight}" 
-                 Margin="5"/>
 
         <Button Content="Применить"
                 Command="{Binding SaveCommand}"
